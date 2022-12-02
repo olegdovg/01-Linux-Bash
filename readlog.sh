@@ -6,7 +6,6 @@ function request_per_day() {
     declare -A day_array
     while read line; do
         day=$(echo "$line" | sed 's/.*\[//g;s/].*//g;s/:.*//g')
-        *
         if [[ -v day_array[$day] ]]; then
            day_array[$day]=$((day_array[$day]+1))
         else
@@ -32,6 +31,8 @@ function request_per_ip() {
 }
 
 
+
+
 echo "1. From which ip were the most requests?"
  request_per_ip
 echo ""
@@ -47,7 +48,7 @@ echo "4. What non-existent pages were clients referred to?"
  cat $1 |awk '($9 ~ /403/)' | awk '{print $9,$7}' | uniq -c | sort -rn | head -1
 echo ""
 echo "5. What time did site get the most requests?"
-awk '$7 ~ /.php$/{top[$1]++} END {for (i in top) printf "%6d - %s\n", top[i], i}' $1 | sort -r -n | head -n10
+ request_per_time
 echo ""
 echo "6. What search bots have accessed the site? (UA + IP)"
 
