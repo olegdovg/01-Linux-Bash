@@ -1,12 +1,12 @@
 #!/bin/bash
 
 # Вхідні дані
-SOURCE_DIR="$HOME/source/"
-DEST_DIR="$HOME/desination/"
-TMP_FILE=$1
-#/tmp/copyfileslist.txt
-TMP_FILE1=$2
-#/tmp/existfileslist.txt
+SOURCE_DIR=$1
+#"$HOME/source/"
+DEST_DIR=$2
+#"$HOME/desination/"
+TMP_FILE=/tmp/copyfileslist.txt
+TMP_FILE1=/tmp/existfileslist.txt
 LOG=/tmp/Loglist.txt
 ### Перевірка наявності каталогу з даними
 
